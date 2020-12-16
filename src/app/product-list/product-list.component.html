@@ -1,21 +1,30 @@
-<h2>Products</h2>
-
-<div *ngFor="let product of products">
-  
-  <h3>
-    <a [title]="product.name + ' details'">
-      {{ product.name }}
-    </a>
-  </h3>
-
-  <p *ngIf="product.description">
-    Description: {{ product.description }}
-  </p>
-
-  <button (click)="share()">
-    Share
-  </button>
-
+<h1 class="h2">Productos</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let product of products">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="assets/img/{{ product.image }}.jpg" class="card-img-top py-2" alt="Empty">
+          <h3 class="card-title">
+            <a [title]="product.name + ' details'">
+              {{ product.name }}
+            </a>
+          </h3>
+          <p class="card-text" *ngIf="product.description">
+            Description: {{ product.description }}
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-center gap-3">
+          <button class="btn btn-primary" (click)="share()">
+            <i class="material-icons align-bottom" style="color: white;">notification_important</i>Notificarme
+          </button>
+          <button class="btn btn-secondary" (click)="share()">
+            Compartir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- 
